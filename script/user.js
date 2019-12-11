@@ -22,11 +22,19 @@ function askForName() {
     userForm.addEventListener("submit", handleSubmit);
 }
 
+function handleUserUpdate() {
+    localStorage.removeItem(USER_NAME_LS);
+
+    window.location.reload()
+}
+
 function showOutput(user) {
     userForm.classList.remove(SHOWING_CN);
 
     userOutput.innerText = `Hello ${user}`
     userOutput.classList.add(SHOWING_CN);
+
+    userOutput.addEventListener("dblclick", handleUserUpdate);
 }
 
 function loadUser() {
